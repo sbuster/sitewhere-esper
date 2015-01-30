@@ -45,20 +45,18 @@ public class EsperEventProcessor extends OutboundEventProcessor {
 	}
 	@Override
 	public void onAlert(com.sitewhere.spi.device.event.IDeviceAlert alert) throws SiteWhereException {
-		System.out.println(alert.toString());
+		configuration.getServiceProvider().getEPRuntime().sendEvent(alert);
 		
 	}
 	
 	@Override
 	public void onLocation(com.sitewhere.spi.device.event.IDeviceLocation location) throws SiteWhereException {
-		
-		System.out.println(location.toString());
+		configuration.getServiceProvider().getEPRuntime().sendEvent(location);
 	};
 	
 	@Override
 	public void onCommandInvocation(com.sitewhere.spi.device.event.IDeviceCommandInvocation invocation) throws SiteWhereException {
-		
-		System.out.println(invocation.toString());
+		configuration.getServiceProvider().getEPRuntime().sendEvent(invocation);
 	};
 	
 	
